@@ -11,7 +11,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         setupAppearance()
 
         window = UIWindow(frame: UIScreen.main.bounds)
-        let rootViewController = SystemNavigationController(hideNavigationBar: false)
+        let rootViewController = SystemNavigationController(hideNavigationBar: true)
         window?.rootViewController = rootViewController
         window?.makeKeyAndVisible()
 

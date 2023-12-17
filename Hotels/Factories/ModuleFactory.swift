@@ -21,17 +21,18 @@ final class ModuleFactory: ModuleFactoryProtocol {
         modalModuleHandler: @escaping () -> Void,
         modalUnitHandler: @escaping () -> Void
     ) -> Presentable {
-        return PrototypeModuleViewController(
-            model: .init(
-                pushUnitHandler: pushUnitHandler,
-                pushModuleHandler: pushModuleHandler,
-                closeUnitOrModuleHandler: nil,
-                popToRootHandler: nil,
-                modalModuleHandler: modalModuleHandler,
-                modalUnitHandler: modalUnitHandler,
-                closeModalHandler: nil
-            )
-        )
+        HotelViewController(model: .init(pushRoomHandler: pushModuleHandler))
+//        return PrototypeModuleViewController(
+//            model: .init(
+//                pushUnitHandler: pushUnitHandler,
+//                pushModuleHandler: pushModuleHandler,
+//                closeUnitOrModuleHandler: nil,
+//                popToRootHandler: nil,
+//                modalModuleHandler: modalModuleHandler,
+//                modalUnitHandler: modalUnitHandler,
+//                closeModalHandler: nil
+//            )
+//        )
     }
 
     func makePushModule(
@@ -42,17 +43,18 @@ final class ModuleFactory: ModuleFactoryProtocol {
         modalModuleHandler: @escaping () -> Void,
         modalUnitHandler: @escaping () -> Void
     ) -> Presentable {
-        return PrototypeModuleViewController(
-            model: .init(
-                pushUnitHandler: pushUnitHandler,
-                pushModuleHandler: pushModuleHandler,
-                closeUnitOrModuleHandler: closeUnitOrModuleHandler,
-                popToRootHandler: popToRootHandler,
-                modalModuleHandler: modalModuleHandler,
-                modalUnitHandler: modalUnitHandler,
-                closeModalHandler: nil
-            )
-        )
+        HotelViewController(model: .init(pushRoomHandler: pushModuleHandler))
+//        return PrototypeModuleViewController(
+//            model: .init(
+//                pushUnitHandler: pushUnitHandler,
+//                pushModuleHandler: pushModuleHandler,
+//                closeUnitOrModuleHandler: closeUnitOrModuleHandler,
+//                popToRootHandler: popToRootHandler,
+//                modalModuleHandler: modalModuleHandler,
+//                modalUnitHandler: modalUnitHandler,
+//                closeModalHandler: nil
+//            )
+//        )
     }
 
     func makePrototypeModule(
