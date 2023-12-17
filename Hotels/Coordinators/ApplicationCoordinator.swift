@@ -11,11 +11,9 @@ final class ApplicationCoordinator: BaseCoordinator {
     }
 }
 
-// MARK: - Coordinator
-
 extension ApplicationCoordinator: Coordinator {
     func start(with option: Void) {
-        startStartupOne()
+        startHotel()
     }
 }
 
@@ -32,6 +30,10 @@ extension ApplicationCoordinator: PrototypeStartupCoordinatorOutput {
 // MARK: - Navigation
 
 private extension ApplicationCoordinator {
+    func startHotel() {
+        let coordinator = coordinatorFactory.makeHotelCoordinator(router: router, parent: self)
+        coordinator.start()
+    }
     func startStartupOne() {
         let coordinator = coordinatorFactory.makePrototypeStartupCoordinator(output: self, router: router)
         coordinator.start(with: .one)

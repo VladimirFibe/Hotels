@@ -1,5 +1,11 @@
 protocol CoordinatorFactoryProtocol: AnyObject {
     func makeApplicationCoordinator(router: Routable) -> AnyCoordinator<Void>
+
+    func makeHotelCoordinator(
+        router: Routable,
+        parent: BaseCoordinator
+    ) -> AnyCoordinator<Void>
+    
     func makePrototypeStartupCoordinator(
         output: PrototypeStartupCoordinatorOutput & BaseCoordinator,
         router: Routable
@@ -21,6 +27,20 @@ final class CoordinatorFactory: CoordinatorFactoryProtocol {
 
     func makeApplicationCoordinator(router: Routable) -> AnyCoordinator<Void> {
         return AnyCoordinator(ApplicationCoordinator(router: router, coordinatorFactory: self))
+    }
+
+    func makeHotelCoordinator(
+        router: Routable,
+        parent: BaseCoordinator
+    ) -> AnyCoordinator<Void> {
+        AnyCoordinator(
+            HotelCoordinator(
+                router: router,
+                parent: parent,
+                moduleFactory: ModuleFactory.shared,
+                coordinatorFactory: self
+            )
+        )
     }
 
     func makePrototypeStartupCoordinator(

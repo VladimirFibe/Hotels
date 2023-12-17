@@ -1,6 +1,15 @@
 final class ModuleFactory: ModuleFactoryProtocol {
+    
     static let shared = ModuleFactory()
     private init() {}
+
+    func makeHotelModule(pushRoomHandler: @escaping () -> Void) -> Presentable {
+        HotelViewController(model: .init(pushRoomHandler: pushRoomHandler))
+    }
+
+    func makeRoomModule() -> Presentable {
+        RoomViewController()
+    }
 
     func makePrototypeStartupModule(output: PrototypeStartupModuleOutput, deeplink: PrototypeStartupCoordinator.Deeplink) -> Presentable {
         return PrototypeStartupViewController(output: output, deeplink: deeplink)
@@ -87,7 +96,12 @@ final class ModuleFactory: ModuleFactoryProtocol {
 }
 
 protocol ModuleFactoryProtocol: AnyObject {
+    func makeHotelModule(pushRoomHandler: @escaping () -> Void) -> Presentable
+
+    func makeRoomModule() -> Presentable
+
     func makePrototypeStartupModule(output: PrototypeStartupModuleOutput, deeplink: PrototypeStartupCoordinator.Deeplink) -> Presentable
+    
     func makeTabModule(
         pushUnitHandler: @escaping () -> Void,
         pushModuleHandler: @escaping () -> Void,

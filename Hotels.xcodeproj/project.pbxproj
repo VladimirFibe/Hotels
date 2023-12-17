@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		02140BE42B2EA1F1001468F9 /* HotelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02140BE32B2EA1F1001468F9 /* HotelViewController.swift */; };
+		02140BE62B2EA1FE001468F9 /* RoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02140BE52B2EA1FE001468F9 /* RoomViewController.swift */; };
+		02140BE82B2EA25D001468F9 /* BookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02140BE72B2EA25D001468F9 /* BookViewController.swift */; };
+		02140BEA2B2EA2B2001468F9 /* PaidViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02140BE92B2EA2B2001468F9 /* PaidViewController.swift */; };
+		02140BEC2B2EA4B9001468F9 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02140BEB2B2EA4B9001468F9 /* BaseViewController.swift */; };
+		02140BEE2B2EA879001468F9 /* HotelCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02140BED2B2EA879001468F9 /* HotelCoordinator.swift */; };
 		025E4BDC2B2D3B40005CA675 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025E4BDB2B2D3B40005CA675 /* AppDelegate.swift */; };
 		025E4BE52B2D3B41005CA675 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 025E4BE42B2D3B41005CA675 /* Assets.xcassets */; };
 		025E4BE82B2D3B41005CA675 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 025E4BE62B2D3B41005CA675 /* LaunchScreen.storyboard */; };
@@ -46,6 +52,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		02140BE32B2EA1F1001468F9 /* HotelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotelViewController.swift; sourceTree = "<group>"; };
+		02140BE52B2EA1FE001468F9 /* RoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomViewController.swift; sourceTree = "<group>"; };
+		02140BE72B2EA25D001468F9 /* BookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookViewController.swift; sourceTree = "<group>"; };
+		02140BE92B2EA2B2001468F9 /* PaidViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaidViewController.swift; sourceTree = "<group>"; };
+		02140BEB2B2EA4B9001468F9 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		02140BED2B2EA879001468F9 /* HotelCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotelCoordinator.swift; sourceTree = "<group>"; };
 		025E4BD82B2D3B40005CA675 /* Hotels.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hotels.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		025E4BDB2B2D3B40005CA675 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		025E4BE42B2D3B41005CA675 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -125,6 +137,7 @@
 				025E4C1F2B2D4F8A005CA675 /* Factories */,
 				025E4C282B2D5169005CA675 /* Coordinators */,
 				025E4C3F2B2D55F9005CA675 /* Modules */,
+				02140BEB2B2EA4B9001468F9 /* BaseViewController.swift */,
 			);
 			path = Hotels;
 			sourceTree = "<group>";
@@ -207,6 +220,7 @@
 		025E4C282B2D5169005CA675 /* Coordinators */ = {
 			isa = PBXGroup;
 			children = (
+				02140BED2B2EA879001468F9 /* HotelCoordinator.swift */,
 				025E4C262B2D5161005CA675 /* ApplicationCoordinator.swift */,
 				025E4C292B2D53DA005CA675 /* PrototypeStartupCoordinator.swift */,
 				025E4C2B2B2D5413005CA675 /* PrototypeTabCoordinator.swift */,
@@ -241,6 +255,10 @@
 			children = (
 				025E4C3D2B2D55F1005CA675 /* PrototypeStartupViewController.swift */,
 				025E4C402B2D5622005CA675 /* PrototypeModuleViewController.swift */,
+				02140BE32B2EA1F1001468F9 /* HotelViewController.swift */,
+				02140BE52B2EA1FE001468F9 /* RoomViewController.swift */,
+				02140BE72B2EA25D001468F9 /* BookViewController.swift */,
+				02140BE92B2EA2B2001468F9 /* PaidViewController.swift */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -323,12 +341,15 @@
 				025E4C252B2D511B005CA675 /* TabFactory.swift in Sources */,
 				025E4C362B2D550E005CA675 /* TabBarManager.swift in Sources */,
 				025E4BDC2B2D3B40005CA675 /* AppDelegate.swift in Sources */,
+				02140BE82B2EA25D001468F9 /* BookViewController.swift in Sources */,
 				025E4C2C2B2D5413005CA675 /* PrototypeTabCoordinator.swift in Sources */,
+				02140BE42B2EA1F1001468F9 /* HotelViewController.swift in Sources */,
 				025E4C272B2D5161005CA675 /* ApplicationCoordinator.swift in Sources */,
 				025E4C322B2D54D4005CA675 /* TabBarCoordinator.swift in Sources */,
 				025E4C042B2D49A3005CA675 /* DefaultLifeCycleListener.swift in Sources */,
 				025E4C1A2B2D4F0C005CA675 /* DismissTransition.swift in Sources */,
 				025E4C382B2D552A005CA675 /* SystemTabBarController.swift in Sources */,
+				02140BE62B2EA1FE001468F9 /* RoomViewController.swift in Sources */,
 				025E4C0D2B2D4BB3005CA675 /* AutomaticCoordinatorConfiguration.swift in Sources */,
 				025E4C062B2D49DC005CA675 /* ModalPresentationStyle.swift in Sources */,
 				025E4BF92B2D4201005CA675 /* SystemNavigation.swift in Sources */,
@@ -337,7 +358,10 @@
 				025E4C1C2B2D4F2D005CA675 /* CrossDissolveTransition.swift in Sources */,
 				025E4C152B2D4D37005CA675 /* FadeTransition.swift in Sources */,
 				025E4BF52B2D41BD005CA675 /* Presentable.swift in Sources */,
+				02140BEE2B2EA879001468F9 /* HotelCoordinator.swift in Sources */,
 				025E4BF72B2D41E6005CA675 /* LifeCycleListener.swift in Sources */,
+				02140BEC2B2EA4B9001468F9 /* BaseViewController.swift in Sources */,
+				02140BEA2B2EA2B2001468F9 /* PaidViewController.swift in Sources */,
 				025E4C2E2B2D542B005CA675 /* PrototypeCoordinator.swift in Sources */,
 				025E4C232B2D4FC9005CA675 /* TransitionFactory.swift in Sources */,
 				025E4BFB2B2D4215005CA675 /* Transition.swift in Sources */,
