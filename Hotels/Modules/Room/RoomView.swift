@@ -4,6 +4,7 @@ struct RoomView: View {
     var action: Callback?
     var body: some View {
         VStack {
+            PhotoGalleryView()
             button
         }
     }
