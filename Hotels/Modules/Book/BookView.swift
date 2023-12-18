@@ -9,6 +9,7 @@ struct BookView: View {
             Spacer()
             button
         }
+        .padding()
     }
     var button: some View {
         Button {

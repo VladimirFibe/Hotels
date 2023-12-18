@@ -32,6 +32,7 @@
 		028C147D2B305F1600D93C63 /* PaidView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028C147C2B305F1600D93C63 /* PaidView.swift */; };
 		028C147F2B30600D00D93C63 /* BookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028C147E2B30600D00D93C63 /* BookView.swift */; };
 		028C14812B30604300D93C63 /* RoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028C14802B30604300D93C63 /* RoomView.swift */; };
+		029EE19B2B310F4E004CBAE2 /* BookInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029EE19A2B310F4E004CBAE2 /* BookInfoView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +63,7 @@
 		028C147C2B305F1600D93C63 /* PaidView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaidView.swift; sourceTree = "<group>"; };
 		028C147E2B30600D00D93C63 /* BookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookView.swift; sourceTree = "<group>"; };
 		028C14802B30604300D93C63 /* RoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomView.swift; sourceTree = "<group>"; };
+		029EE19A2B310F4E004CBAE2 /* BookInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookInfoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,6 +184,7 @@
 			children = (
 				02140BE72B2EA25D001468F9 /* BookViewController.swift */,
 				028C147E2B30600D00D93C63 /* BookView.swift */,
+				029EE19A2B310F4E004CBAE2 /* BookInfoView.swift */,
 				024B7F6F2B3086ED00A90D14 /* PhoneTextField.swift */,
 			);
 			path = Book;
@@ -281,6 +284,7 @@
 				028C145C2B30220B00D93C63 /* BaseCoordinator.swift in Sources */,
 				028C147F2B30600D00D93C63 /* BookView.swift in Sources */,
 				028C14602B3022D400D93C63 /* AppCoordinator.swift in Sources */,
+				029EE19B2B310F4E004CBAE2 /* BookInfoView.swift in Sources */,
 				02140BEC2B2EA4B9001468F9 /* BaseViewController.swift in Sources */,
 				028C14702B302A5A00D93C63 /* HotelView.swift in Sources */,
 				028C14622B30275700D93C63 /* UIViewController+Extension.swift in Sources */,
