@@ -1,8 +1,18 @@
-//
-//  PaidViewController.swift
-//  Hotels
-//
-//  Created by Vladimir Fibe on 17.12.2023.
-//
+import UIKit
 
-import Foundation
+final class PaidViewController: BaseViewController {
+
+}
+
+extension PaidViewController {
+    override func setupViews() {
+        super.setupViews()
+        view.backgroundColor = .green
+        addNavBarButton(at: .right, with: "Root")
+        title = "Paid"
+    }
+
+    override func navBarRightButtonHandler() {
+        model.popToRootHandler?()
+    }
+}

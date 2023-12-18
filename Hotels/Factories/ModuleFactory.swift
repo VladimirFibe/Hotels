@@ -4,11 +4,11 @@ final class ModuleFactory: ModuleFactoryProtocol {
     private init() {}
 
     func makeHotelModule(pushRoomHandler: @escaping () -> Void) -> Presentable {
-        HotelViewController(model: .init(pushRoomHandler: pushRoomHandler))
+        HotelViewController(model: .init())
     }
 
     func makeRoomModule() -> Presentable {
-        RoomViewController()
+        RoomViewController(model: .init())
     }
 
     func makePrototypeStartupModule(output: PrototypeStartupModuleOutput, deeplink: PrototypeStartupCoordinator.Deeplink) -> Presentable {
@@ -21,18 +21,7 @@ final class ModuleFactory: ModuleFactoryProtocol {
         modalModuleHandler: @escaping () -> Void,
         modalUnitHandler: @escaping () -> Void
     ) -> Presentable {
-        HotelViewController(model: .init(pushRoomHandler: pushModuleHandler))
-//        return PrototypeModuleViewController(
-//            model: .init(
-//                pushUnitHandler: pushUnitHandler,
-//                pushModuleHandler: pushModuleHandler,
-//                closeUnitOrModuleHandler: nil,
-//                popToRootHandler: nil,
-//                modalModuleHandler: modalModuleHandler,
-//                modalUnitHandler: modalUnitHandler,
-//                closeModalHandler: nil
-//            )
-//        )
+        HotelViewController(model: .init())
     }
 
     func makePushModule(
@@ -43,18 +32,7 @@ final class ModuleFactory: ModuleFactoryProtocol {
         modalModuleHandler: @escaping () -> Void,
         modalUnitHandler: @escaping () -> Void
     ) -> Presentable {
-        HotelViewController(model: .init(pushRoomHandler: pushModuleHandler))
-//        return PrototypeModuleViewController(
-//            model: .init(
-//                pushUnitHandler: pushUnitHandler,
-//                pushModuleHandler: pushModuleHandler,
-//                closeUnitOrModuleHandler: closeUnitOrModuleHandler,
-//                popToRootHandler: popToRootHandler,
-//                modalModuleHandler: modalModuleHandler,
-//                modalUnitHandler: modalUnitHandler,
-//                closeModalHandler: nil
-//            )
-//        )
+        HotelViewController(model: .init())
     }
 
     func makePrototypeModule(

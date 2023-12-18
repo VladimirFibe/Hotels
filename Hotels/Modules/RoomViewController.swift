@@ -1,10 +1,3 @@
-//
-//  RoomViewController.swift
-//  Hotels
-//
-//  Created by Vladimir Fibe on 17.12.2023.
-//
-
 import UIKit
 
 final class RoomViewController: BaseViewController {
@@ -14,6 +7,12 @@ final class RoomViewController: BaseViewController {
 extension RoomViewController {
     override func setupViews() {
         super.setupViews()
+        view.backgroundColor = .green
+        addNavBarButton(at: .right, with: "Book")
         title = "Room"
+    }
+
+    override func navBarRightButtonHandler() {
+        model.pushModuleHandler?()
     }
 }

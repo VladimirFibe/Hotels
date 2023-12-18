@@ -1,8 +1,18 @@
-//
-//  BookViewController.swift
-//  Hotels
-//
-//  Created by Vladimir Fibe on 17.12.2023.
-//
+import UIKit
 
-import Foundation
+final class BookViewController: BaseViewController {
+
+}
+
+extension BookViewController {
+    override func setupViews() {
+        super.setupViews()
+        view.backgroundColor = .green
+        addNavBarButton(at: .right, with: "Pay")
+        title = "Book"
+    }
+
+    override func navBarRightButtonHandler() {
+        model.pushModuleHandler?()
+    }
+}

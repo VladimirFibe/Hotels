@@ -1,14 +1,36 @@
 import UIKit
 
+typealias CallBack = () -> Void
 class BaseViewController: UIViewController {
+    struct Model {
+        var pushUnitHandler: CallBack? = nil
+        var pushModuleHandler: CallBack? = nil
+        var closeUnitOrModuleHandler: CallBack? = nil
+        var popToRootHandler: CallBack? = nil
+        var modalModuleHandler: CallBack? = nil
+        var modalUnitHandler: CallBack? = nil
+        var closeModalHandler: CallBack? = nil
+    }
+
+    let model: Model
+
+    init(model: Model) {
+        self.model = model
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    deinit {
+        print("\(title ?? "")ViewController dealloc")
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
         setupConstraints()
-    }
-
-    deinit {
-        print("\(title ?? "") dealloc")
     }
 }
 
