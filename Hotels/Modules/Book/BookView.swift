@@ -2,8 +2,10 @@ import SwiftUI
 
 struct BookView: View {
     var action: Callback?
+    @State var text = "+7"
     var body: some View {
         VStack {
+            PhoneTextField(text: $text)
             Spacer()
             button
         }
