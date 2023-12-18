@@ -1,0 +1,57 @@
+import Foundation
+typealias Callback = () -> Void
+
+final class AppCoordinator: BaseCoordinator {
+    override func start() {
+        runHotel()
+    }
+
+    private func runHotel() {
+        let controller = makeHotel()
+        router.setRootModule(controller)
+    }
+    private func runRoom() {
+        let controller = makeRoom()
+        router.push(controller)
+    }
+
+    private func runBook() {
+        let controller = makeReserve()
+        router.push(controller)
+    }
+
+    private func runPaid() {
+        let controller = makePaid()
+        router.push(controller)
+    }
+
+    private func runToRoot() {
+        router.popToRootModule(animated: true)
+    }
+}
+
+extension AppCoordinator {
+    private func makeHotel() -> BaseViewControllerProtocol {
+        HotelViewController(model: .init(pushModuleHandler: { [weak self] in
+            self?.runRoom()
+        }))
+    }
+
+    private func makeRoom() -> BaseViewControllerProtocol {
+        RoomViewController(model: .init(pushModuleHandler: { [weak self] in
+            self?.runBook()
+        }))
+    }
+
+    private func makeReserve() -> BaseViewControllerProtocol {
+        BookViewController(model: .init(pushModuleHandler: { [weak self] in
+            self?.runPaid()
+        }))
+    }
+
+    private func makePaid() -> BaseViewControllerProtocol {
+        PaidViewController(model: .init(popToRootHandler: { [weak self] in
+            self?.runToRoot()
+        }))
+    }
+}

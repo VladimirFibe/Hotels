@@ -1,18 +1,39 @@
 import UIKit
 
-typealias CallBack = () -> Void
-class BaseViewController: UIViewController {
+public protocol BaseViewControllerProtocol: UIViewController {
+    var onRemoveFromNavigationStack: (() -> Void)? { get set }
+    var onDidDismiss: (() -> Void)? { get set }
+}
+
+class BaseViewController: UIViewController, BaseViewControllerProtocol {
     struct Model {
-        var pushUnitHandler: CallBack? = nil
-        var pushModuleHandler: CallBack? = nil
-        var closeUnitOrModuleHandler: CallBack? = nil
-        var popToRootHandler: CallBack? = nil
-        var modalModuleHandler: CallBack? = nil
-        var modalUnitHandler: CallBack? = nil
-        var closeModalHandler: CallBack? = nil
+        var pushUnitHandler: Callback? = nil
+        var pushModuleHandler: Callback? = nil
+        var closeUnitOrModuleHandler: Callback? = nil
+        var popToRootHandler: Callback? = nil
+        var modalModuleHandler: Callback? = nil
+        var modalUnitHandler: Callback? = nil
+        var closeModalHandler: Callback? = nil
     }
 
     let model: Model
+
+    public var onRemoveFromNavigationStack: (() -> Void)?
+    public var onDidDismiss: (() -> Void)?
+
+    override public func didMove(toParent parent: UIViewController?) {
+        super.didMove(toParent: parent)
+        if parent == nil {
+            onRemoveFromNavigationStack?()
+        }
+    }
+
+    open override func dismiss(animated flag: Bool, completion: (() -> Void)? = nil) {
+        super.dismiss(animated: flag) { [weak self] in
+            completion?()
+            self?.onDidDismiss?()
+        }
+    }
 
     init(model: Model) {
         self.model = model
