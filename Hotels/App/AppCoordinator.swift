@@ -28,6 +28,10 @@ final class AppCoordinator: BaseCoordinator {
     private func runToRoot() {
         router.popToRootModule(animated: true)
     }
+
+    private func closeModule() {
+        router.popModule(animated: true)
+    }
 }
 
 extension AppCoordinator {
@@ -38,20 +42,36 @@ extension AppCoordinator {
     }
 
     private func makeRoom() -> BaseViewControllerProtocol {
-        RoomViewController(model: .init(pushModuleHandler: { [weak self] in
-            self?.runBook()
-        }))
+        RoomViewController(model: .init(
+            pushModuleHandler: { [weak self] in
+                self?.runBook()
+            },
+            closeUnitOrModuleHandler: { [weak self] in
+                self?.closeModule()
+            }
+        ))
     }
 
     private func makeReserve() -> BaseViewControllerProtocol {
-        BookViewController(model: .init(pushModuleHandler: { [weak self] in
-            self?.runPaid()
-        }))
+        BookViewController(model: .init(
+            pushModuleHandler: { [weak self] in
+                self?.runPaid()
+            },
+            closeUnitOrModuleHandler: { [weak self] in
+                self?.closeModule()
+            }
+        ))
     }
 
     private func makePaid() -> BaseViewControllerProtocol {
-        PaidViewController(model: .init(popToRootHandler: { [weak self] in
-            self?.runToRoot()
-        }))
+        PaidViewController(model: .init(
+            closeUnitOrModuleHandler: { [weak self] in
+                self?.closeModule()
+            },
+            popToRootHandler: { [weak self] in
+                self?.runToRoot()
+            }
+            
+        ))
     }
 }

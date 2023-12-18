@@ -1,11 +1,6 @@
 import UIKit
 
-public protocol BaseViewControllerProtocol: UIViewController {
-    var onRemoveFromNavigationStack: (() -> Void)? { get set }
-    var onDidDismiss: (() -> Void)? { get set }
-}
-
-class BaseViewController: UIViewController, BaseViewControllerProtocol {
+class BaseTableViewController: UITableViewController, BaseViewControllerProtocol {
     struct Model {
         var pushUnitHandler: Callback? = nil
         var pushModuleHandler: Callback? = nil
@@ -55,7 +50,7 @@ class BaseViewController: UIViewController, BaseViewControllerProtocol {
     }
 }
 
-@objc extension BaseViewController {
+@objc extension BaseTableViewController {
     func setupViews() {
         view.backgroundColor = .systemBackground
     }
@@ -64,7 +59,7 @@ class BaseViewController: UIViewController, BaseViewControllerProtocol {
     func navBarRightButtonHandler() {}
 }
 
-extension BaseViewController {
+extension BaseTableViewController {
     func addNavBarButton(
         at position: NavBarPosition,
         with title: String? = nil,
@@ -82,9 +77,4 @@ extension BaseViewController {
             navigationItem.rightBarButtonItem = UIBarButtonItem(customView: button)
         }
     }
-}
-
-enum NavBarPosition {
-    case left
-    case right
 }
