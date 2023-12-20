@@ -14,11 +14,13 @@ extension RoomViewController {
             withIdentifier: cellReuseID,
             for: indexPath
         )
-
+        cell.backgroundColor = .clear
         cell.contentConfiguration = UIHostingConfiguration {
             RoomView(action: { [weak self] in
                 self?.pushModule()})
         }
+        .margins([.horizontal, .bottom], 0)
+        .margins(.top, 8)
 
         return cell
     }
@@ -27,7 +29,9 @@ extension RoomViewController {
 extension RoomViewController {
     override func setupViews() {
         super.setupViews()
+        view.backgroundColor = AppColor.xF6F6F9.uiColor
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseID)
+        tableView.separatorStyle = .none
         addNavBarButton(at: .left, image: UIImage(systemName: "chevron.left"))
         navigationItem.title = "Steigenberger Makadi"
     }

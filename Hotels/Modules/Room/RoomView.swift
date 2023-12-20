@@ -7,6 +7,7 @@ struct RoomView: View {
             PhotoGalleryView()
             button
         }
+        .hotelSectionModifier()
     }
     var button: some View {
         Button {
@@ -18,7 +19,6 @@ struct RoomView: View {
                 .frame(height: 48)
                 .foregroundStyle(.white)
                 .background(RoundedRectangle(cornerRadius: 15).fill(AppColor.blue.color))
-                .padding(.horizontal, 16)
         }
 
     }
