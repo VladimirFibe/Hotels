@@ -32,7 +32,10 @@ struct PaidView: View {
                 .frame(maxWidth: .infinity)
                 .frame(height: 48)
                 .foregroundStyle(.white)
-                .background(RoundedRectangle(cornerRadius: 15).fill(AppColor.blue.color))
+                .background(
+                    RoundedRectangle(cornerRadius: 15)
+                        .fill(AppColor.blue.color)
+                )
                 .padding(.horizontal, 16)
         }
     }

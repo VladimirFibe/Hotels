@@ -1,9 +1,6 @@
 import SwiftUI
 
 struct BookInfoView: View {
-
-    let columns = [GridItem(.fixed(150)), GridItem(.flexible())]
-
     var body: some View {
         VStack(spacing: 20.0) {
             BookInfoRow(title: "Вылет из", value: "Санк-Петербург")
@@ -14,7 +11,7 @@ struct BookInfoView: View {
             BookInfoRow(title: "Номер", value: "Стандартный с видом на бассейн или сад")
             BookInfoRow(title: "Питание", value: "Все включено")
         }
-        .padding(.horizontal)
+        .hotelSectionModifier()
     }
 }
 
@@ -34,4 +31,6 @@ struct BookInfoRow: View {
 
 #Preview {
     BookInfoView()
+        .padding(.horizontal)
+
 }

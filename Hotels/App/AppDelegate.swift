@@ -11,6 +11,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
     ) -> Bool {
         startAppCoordinator()
+        setupAppearance()
         return true
     }
 
@@ -25,6 +26,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
 
         appCoordinator.start()
+    }
+
+    func setupAppearance() {
+        let appearance = UINavigationBarAppearance()
+        let buttonAppearance = UIBarButtonItemAppearance(style: .plain)
+        appearance.configureWithDefaultBackground()
+        appearance.backgroundColor = .systemBackground
+        appearance.titleTextAttributes = [.foregroundColor: UIColor.label]
+
+        buttonAppearance.normal.titleTextAttributes = [.foregroundColor: UIColor.label]
+        UINavigationBar.appearance().tintColor = UIColor.label
+        appearance.buttonAppearance = buttonAppearance
+
+        UINavigationBar.appearance().standardAppearance = appearance
+        UINavigationBar.appearance().scrollEdgeAppearance = appearance
     }
 }
 
