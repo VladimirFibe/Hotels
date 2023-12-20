@@ -5,6 +5,7 @@ struct BookView: View {
     @State var text = "+7"
     var body: some View {
         VStack {
+            BookInfoView()
             PhoneTextField(text: $text)
             Spacer()
             button

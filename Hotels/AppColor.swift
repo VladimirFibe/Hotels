@@ -18,9 +18,10 @@ extension AppColorProtocol {
 }
 
 enum AppColor: String, AppColorProtocol {
-    case orange = "orangeHotel"
-    case blue = "blueHotel"
-    case gray = "grayHotel"
-    case lightGray = "lightGrayHotel"
-    case orangeBackground
+    case orange = "xFFA800"
+    case blue = "x0D72FF"
+    case gray = "x828796"
+    case lightGray = "xFBFBFC"
+    case orangeBackground = "xFFC70020"
+    case xF6F6F9
 }
