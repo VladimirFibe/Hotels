@@ -8,39 +8,9 @@ struct TagsView: View {
         .init(text: "1 км до пляжа")]
     @State var line = 0
     var body: some View {
-        VStack(alignment: .leading) {
-            generateContent(size: UIScreen.main.bounds.size.width - 24)
-        }
-    }
-
-    private func generateContent(size: CGFloat) -> some View {
-        var width = CGFloat.zero
-        var height = CGFloat.zero
-
-        return ZStack(alignment: .topLeading) {
+        TagLayout {
             ForEach(tags) { tag in
                 TagView(text: tag.text)
-                    .padding(4)
-                    .alignmentGuide(.leading, computeValue: { d in
-                        if abs(width - d.width) > size {
-                            width = 0
-                            height -= d.height
-                        }
-                        let result = width
-                        if tag == tags.first! {
-                            width = 0
-                        } else {
-                            width -= d.width
-                        }
-                        return result
-                    })
-                    .alignmentGuide(.top, computeValue: {d in
-                        let result = height
-                        if tag == tags.first! {
-                            height = 0
-                        }
-                        return result
-                    })
             }
         }
     }

@@ -88,8 +88,9 @@ struct HotelView_Previews: PreviewProvider {
     }
 }
 
-struct Tag: Identifiable,Hashable {
+struct Tag: Identifiable, Hashable {
     var id = UUID().uuidString
     var text: String
     var size: CGFloat = 0
+    var isInitial = false
 }
