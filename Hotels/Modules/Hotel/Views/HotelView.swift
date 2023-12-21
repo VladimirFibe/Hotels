@@ -33,6 +33,7 @@ struct HotelView: View {
                 .font(.system(size: 22, weight: .medium))
                 .padding(.horizontal, 16)
             TagsView()
+                .padding(.leading, 12)
             Text("Отель VIP-класса с собственными гольф полями. Высокий уровнь сервиса. Рекомендуем для респектабельного отдыха. Отель принимает гостей от 18 лет!")
                 .font(.system(size: 16))
                 .padding(.horizontal, 16)
@@ -69,7 +70,7 @@ struct HotelView: View {
                 Text("Madinat Makadi, Safaga Road, Makadi Bay, Египет")
                     .font(.system(size: 14, weight: .medium))
                     .foregroundStyle(AppColor.blue.color)
-                HStack {
+                HStack(alignment: .firstTextBaseline) {
                     Text("от 134 673 ₽")
                         .font(.system(size: 30, weight: .semibold))
                     Text("за тур с перелётом")
