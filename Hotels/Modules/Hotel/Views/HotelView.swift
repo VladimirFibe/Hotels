@@ -2,22 +2,18 @@ import SwiftUI
 
 struct HotelView: View {
     var action: Callback?
-    @State private var hotel: Hotel?
+    @ObservedObject var viewModel: HotelViewModel
     var body: some View {
-        ScrollView(.vertical) {
-            VStack(alignment: .leading, spacing: 16.0) {
-                header
-                about
-                button
-            }
-            .task {
-                do {
-                    hotel = try await RESTClient.shared.request(.fetchHotel)
-                    print(hotel)
-                } catch {
-                    print(error.localizedDescription)
+        if let hotel = viewModel.hotel {
+            ScrollView(.vertical) {
+                VStack(alignment: .leading, spacing: 16.0) {
+                    header
+                    about
+                    button
                 }
             }
+        } else {
+            ProgressView()
         }
     }
 
@@ -74,12 +70,12 @@ struct HotelView: View {
         }
     }
 }
-
-struct HotelView_Previews: PreviewProvider {
-    static var previews: some View {
-        HotelView()
-    }
-}
+//
+//struct HotelView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        HotelView()
+//    }
+//}
 
 struct Tag: Identifiable, Hashable {
     var id = UUID().uuidString

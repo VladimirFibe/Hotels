@@ -1,5 +1,4 @@
 import Foundation
-typealias Callback = () -> Void
 
 final class AppCoordinator: BaseCoordinator {
     override func start() {

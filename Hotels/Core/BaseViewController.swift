@@ -6,6 +6,7 @@ public protocol BaseViewControllerProtocol: UIViewController {
 }
 
 class BaseViewController: UIViewController, BaseViewControllerProtocol {
+    var bag = Bag()
     struct Model {
         var pushUnitHandler: Callback? = nil
         var pushModuleHandler: Callback? = nil
