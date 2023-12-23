@@ -2,12 +2,21 @@ import SwiftUI
 
 struct HotelView: View {
     var action: Callback?
+    @State private var hotel: Hotel?
     var body: some View {
         ScrollView(.vertical) {
             VStack(alignment: .leading, spacing: 16.0) {
                 header
                 about
                 button
+            }
+            .task {
+                do {
+                    hotel = try await RESTClient.shared.request(.fetchHotel)
+                    print(hotel)
+                } catch {
+                    print(error.localizedDescription)
+                }
             }
         }
     }
@@ -31,40 +40,24 @@ struct HotelView: View {
         VStack(alignment: .leading, spacing: 16.0) {
             Text("Об отеле")
                 .font(.system(size: 22, weight: .medium))
-                .padding(.horizontal, 16)
-            TagsView()
-                .padding(.leading, 12)
+            TagsView(tags: [
+                .init(text: "3-я линия"),
+                .init(text: "Платный Wi-Fi в фойе"),
+                .init(text: "30 км до аэропорта"),
+                .init(text: "1 км до пляжа")])
             Text("Отель VIP-класса с собственными гольф полями. Высокий уровнь сервиса. Рекомендуем для респектабельного отдыха. Отель принимает гостей от 18 лет!")
                 .font(.system(size: 16))
-                .padding(.horizontal, 16)
             HotelFeaturesList()
-                .padding(.horizontal, 16)
 
         }
+        .padding(.horizontal, 16)
+    }
 
-    }
-    var stars: some View {
-        HStack(spacing: 2.0) {
-            Image(systemName: "star.fill")
-                .resizable()
-                .frame(width: 15, height: 15)
-            Text("5")
-            Text("Превосходно")
-        }
-        .font(.system(size: 16, weight: .medium))
-        .foregroundStyle(AppColor.orange.color)
-        .frame(height: 29)
-        .padding(.horizontal, 10)
-        .background(
-            RoundedRectangle(cornerRadius: 5)
-                .fill(AppColor.orangeBackground.color)
-        )
-    }
     var header: some View {
         VStack(alignment: .leading, spacing: 16.0) {
             PhotoGalleryView()
             VStack(alignment: .leading, spacing: 16.0) {
-                stars
+                HotelStarsView()
                 Text("Steigenberger Makadi")
                     .font(.system(size: 22, weight: .medium))
                 Text("Madinat Makadi, Safaga Road, Makadi Bay, Египет")

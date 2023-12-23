@@ -1,12 +1,7 @@
 import SwiftUI
 
 struct TagsView: View {
-    private var tags: [Tag] = [
-        .init(text: "3-я линия"),
-        .init(text: "Платный Wi-Fi в фойе"),
-        .init(text: "30 км до аэропорта"),
-        .init(text: "1 км до пляжа")]
-    @State var line = 0
+    var tags: [Tag]
     var body: some View {
         TagLayout {
             ForEach(tags) { tag in
@@ -29,11 +24,5 @@ struct TagView: View  {
                 RoundedRectangle(cornerRadius: 5)
                     .fill(AppColor.lightGray.color)
             )
-    }
-}
-
-struct TagsView_Previews: PreviewProvider {
-    static var previews: some View {
-        TagsView()
     }
 }

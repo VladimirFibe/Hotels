@@ -9,8 +9,18 @@ struct BookView: View {
     var body: some View {
         VStack {
             ScrollView(.vertical, showsIndicators: false) {
-                
+                VStack(alignment: .leading, spacing: 16.0) {
+                    HotelStarsView()
+                    Text("Steigenberger Makadi")
+                        .font(.system(size: 22, weight: .medium))
+                    Text("Madinat Makadi, Safaga Road, Makadi Bay, Египет")
+                        .font(.system(size: 14, weight: .medium))
+                        .foregroundStyle(AppColor.blue.color)
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .hotelSectionModifier()
                 BookInfoView()
+                CustomerInfoView()
                 ForEach($tourists) { $tourist in
                     TouristView(tourist: $tourist)
                 }

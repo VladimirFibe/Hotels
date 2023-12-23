@@ -7,6 +7,9 @@ struct RoomView: View {
             PhotoGalleryView()
             Text("Стандартный с видном на бассейн или сад")
                 .font(.system(size: 22, weight: .medium))
+            TagsView(tags: [
+                .init(text: "Все включено"),
+                .init(text: "Кондиционер")])
             HStack {
                 Text("Подробнее о номере")
                 Image(systemName: "chevron.right")
@@ -18,7 +21,13 @@ struct RoomView: View {
             .background(AppColor.blue.color.opacity(0.1))
             .clipShape(RoundedRectangle(cornerRadius: 5))
             .frame(maxWidth: .infinity, alignment: .leading)
-
+            HStack(alignment: .firstTextBaseline) {
+                Text("186 600 ₽")
+                    .font(.system(size: 30, weight: .semibold))
+                Text("за 7 ночей с перелётом")
+                    .foregroundStyle(AppColor.gray.color)
+            }
+            .frame(maxWidth: .infinity, alignment: .leading)
             button
         }
         .hotelSectionModifier()
