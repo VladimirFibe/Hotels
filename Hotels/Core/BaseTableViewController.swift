@@ -1,6 +1,7 @@
 import UIKit
 
 class BaseTableViewController: UITableViewController, BaseViewControllerProtocol {
+    var bag = Bag()
     struct Model {
         var pushUnitHandler: Callback? = nil
         var pushModuleHandler: Callback? = nil

@@ -1,15 +1,21 @@
 import SwiftUI
 
 final class HotelViewController: BaseViewController {
-    private let useCase = HotelUseCase(apiService: RESTClient.shared)
-    private lazy var store = HotelStore(useCase: useCase)
+    private let store: HotelStore
     private var viewModel = HotelViewModel()
     private lazy var content = UIHostingController(
         rootView: HotelView(action: { [weak self] in
             self?.pushModule()
         }, viewModel: viewModel)
     )
-
+    init(store: HotelStore, model: Model) {
+        self.store = store
+        super.init(model: model)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 }
 
 extension HotelViewController {

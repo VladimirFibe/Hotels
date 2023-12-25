@@ -2,11 +2,21 @@ import SwiftUI
 
 final class RoomViewController: BaseTableViewController {
     let cellReuseID = "cellReuseID"
+    var rooms: [Room] = []
+    private let store: RoomStore
+    init(store: RoomStore, model: Model) {
+        self.store = store
+        super.init(model: model)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 }
 
 extension RoomViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        5
+        rooms.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -34,6 +44,8 @@ extension RoomViewController {
         tableView.separatorStyle = .none
         addNavBarButton(at: .left, image: UIImage(systemName: "chevron.left"))
         navigationItem.title = "Steigenberger Makadi"
+        setupObservers()
+        store.sendAction(.fetch)
     }
 
     func pushModule() {
@@ -42,5 +54,20 @@ extension RoomViewController {
 
     override func navBarLeftButtonHandler() {
         model.closeUnitOrModuleHandler?()
+    }
+
+    private func setupObservers() {
+        store
+            .events
+            .receive(on: DispatchQueue.main)
+            .sink {[weak self] event in
+                switch event {
+                case .done(let rooms):
+                    self?.rooms = rooms
+                    print(rooms.count)
+                    print(rooms)
+                    self?.tableView.reloadData()
+                }
+            }.store(in: &bag)
     }
 }

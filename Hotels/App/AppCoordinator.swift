@@ -35,20 +35,29 @@ final class AppCoordinator: BaseCoordinator {
 
 extension AppCoordinator {
     private func makeHotel() -> BaseViewControllerProtocol {
-        HotelViewController(model: .init(pushModuleHandler: { [weak self] in
+        let useCase = HotelUseCase(apiService: RESTClient.shared)
+        let store = HotelStore(useCase: useCase)
+        return HotelViewController(
+            store: store,
+            model: .init(pushModuleHandler: { [weak self] in
             self?.runRoom()
         }))
     }
 
     private func makeRoom() -> BaseViewControllerProtocol {
-        RoomViewController(model: .init(
-            pushModuleHandler: { [weak self] in
-                self?.runBook()
-            },
-            closeUnitOrModuleHandler: { [weak self] in
-                self?.closeModule()
-            }
-        ))
+        let useCase = RoomUseCase(apiService: RESTClient.shared)
+        let store = RoomStore(useCase: useCase)
+        return RoomViewController(
+            store: store,
+            model: .init(
+                pushModuleHandler: { [weak self] in
+                    self?.runBook()
+                },
+                closeUnitOrModuleHandler: { [weak self] in
+                    self?.closeModule()
+                }
+            )
+        )
     }
 
     private func makeReserve() -> BaseViewControllerProtocol {

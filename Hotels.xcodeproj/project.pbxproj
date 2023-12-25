@@ -49,6 +49,10 @@
 		029F089D2B32B4C100B11795 /* HotelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029F089C2B32B4C100B11795 /* HotelTextField.swift */; };
 		029F089F2B32E78100B11795 /* Tourist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029F089E2B32E78100B11795 /* Tourist.swift */; };
 		029F08A42B32E91500B11795 /* TouristView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029F08A32B32E91500B11795 /* TouristView.swift */; };
+		029F5B0D2B3934B600C57AD5 /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029F5B0C2B3934B600C57AD5 /* Room.swift */; };
+		029F5B0F2B39354300C57AD5 /* RoomService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029F5B0E2B39354300C57AD5 /* RoomService.swift */; };
+		029F5B112B39366000C57AD5 /* RoomUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029F5B102B39366000C57AD5 /* RoomUseCase.swift */; };
+		029F5B132B3936E000C57AD5 /* RoomStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029F5B122B3936E000C57AD5 /* RoomStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -96,6 +100,10 @@
 		029F089C2B32B4C100B11795 /* HotelTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotelTextField.swift; sourceTree = "<group>"; };
 		029F089E2B32E78100B11795 /* Tourist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tourist.swift; sourceTree = "<group>"; };
 		029F08A32B32E91500B11795 /* TouristView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouristView.swift; sourceTree = "<group>"; };
+		029F5B0C2B3934B600C57AD5 /* Room.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
+		029F5B0E2B39354300C57AD5 /* RoomService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomService.swift; sourceTree = "<group>"; };
+		029F5B102B39366000C57AD5 /* RoomUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomUseCase.swift; sourceTree = "<group>"; };
+		029F5B122B3936E000C57AD5 /* RoomStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -224,6 +232,9 @@
 			children = (
 				02140BE52B2EA1FE001468F9 /* RoomViewController.swift */,
 				028C14802B30604300D93C63 /* RoomView.swift */,
+				029F5B0E2B39354300C57AD5 /* RoomService.swift */,
+				029F5B102B39366000C57AD5 /* RoomUseCase.swift */,
+				029F5B122B3936E000C57AD5 /* RoomStore.swift */,
 			);
 			path = Room;
 			sourceTree = "<group>";
@@ -257,6 +268,7 @@
 			children = (
 				029F089E2B32E78100B11795 /* Tourist.swift */,
 				02726D4E2B36DD4F0086A669 /* Hotel.swift */,
+				029F5B0C2B3934B600C57AD5 /* Room.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -354,6 +366,8 @@
 				028C14712B302A5A00D93C63 /* DotsView.swift in Sources */,
 				02726D512B36E0120086A669 /* Store.swift in Sources */,
 				025E4BDC2B2D3B40005CA675 /* AppDelegate.swift in Sources */,
+				029F5B0D2B3934B600C57AD5 /* Room.swift in Sources */,
+				029F5B0F2B39354300C57AD5 /* RoomService.swift in Sources */,
 				02140BE82B2EA25D001468F9 /* BookViewController.swift in Sources */,
 				02726D4D2B36D8AF0086A669 /* RESTRoute.swift in Sources */,
 				02140BE42B2EA1F1001468F9 /* HotelViewController.swift in Sources */,
@@ -387,6 +401,8 @@
 				028C14732B302A5A00D93C63 /* HotelFeaturesList.swift in Sources */,
 				028C14812B30604300D93C63 /* RoomView.swift in Sources */,
 				028C147D2B305F1600D93C63 /* PaidView.swift in Sources */,
+				029F5B132B3936E000C57AD5 /* RoomStore.swift in Sources */,
+				029F5B112B39366000C57AD5 /* RoomUseCase.swift in Sources */,
 				02726D4B2B36D7FA0086A669 /* RESTClient.swift in Sources */,
 				028C14742B302A5A00D93C63 /* TagsView.swift in Sources */,
 			);
