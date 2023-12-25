@@ -24,10 +24,13 @@ extension RoomViewController {
             withIdentifier: cellReuseID,
             for: indexPath
         )
+        let room = rooms[indexPath.row]
         cell.backgroundColor = .clear
         cell.contentConfiguration = UIHostingConfiguration {
-            RoomView(action: { [weak self] in
-                self?.pushModule()})
+            RoomView(
+                action: { [weak self] in self?.pushModule()},
+                room: room
+            )
         }
         .margins([.horizontal, .bottom], 0)
         .margins(.top, 8)
