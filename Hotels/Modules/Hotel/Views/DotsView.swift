@@ -12,11 +12,7 @@ struct DotsView: View {
                     .frame(width: 7, height: 7)
                     .frame(width: 12, height: 44)
                     .contentShape(.rect)
-                    .onTapGesture {
-                        index = number
-                        print(index)
-                    }
-
+                    .onTapGesture { index = number }
             }
         }
         .frame(height: 17)

@@ -59,6 +59,7 @@
 		029F5B1D2B39416F00C57AD5 /* BookStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029F5B1C2B39416F00C57AD5 /* BookStore.swift */; };
 		029F5B1F2B39421A00C57AD5 /* BookViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029F5B1E2B39421A00C57AD5 /* BookViewModel.swift */; };
 		029F5B212B394AA400C57AD5 /* HotelHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029F5B202B394AA400C57AD5 /* HotelHeaderView.swift */; };
+		029F5B232B39673800C57AD5 /* HotelContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029F5B222B39673800C57AD5 /* HotelContentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -116,6 +117,7 @@
 		029F5B1C2B39416F00C57AD5 /* BookStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookStore.swift; sourceTree = "<group>"; };
 		029F5B1E2B39421A00C57AD5 /* BookViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookViewModel.swift; sourceTree = "<group>"; };
 		029F5B202B394AA400C57AD5 /* HotelHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotelHeaderView.swift; sourceTree = "<group>"; };
+		029F5B222B39673800C57AD5 /* HotelContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotelContentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -230,6 +232,7 @@
 			children = (
 				028C146B2B302A5A00D93C63 /* HotelView.swift */,
 				029F5B202B394AA400C57AD5 /* HotelHeaderView.swift */,
+				029F5B222B39673800C57AD5 /* HotelContentView.swift */,
 				029CE1B02B3412D8007F2771 /* HotelStarsView.swift */,
 				028C146C2B302A5A00D93C63 /* DotsView.swift */,
 				028C146D2B302A5A00D93C63 /* PhotoGalleryView.swift */,
@@ -396,6 +399,7 @@
 				029F5B1B2B3940F600C57AD5 /* BookUseCase.swift in Sources */,
 				029F089D2B32B4C100B11795 /* HotelTextField.swift in Sources */,
 				02726D572B36E2370086A669 /* HotelStore.swift in Sources */,
+				029F5B232B39673800C57AD5 /* HotelContentView.swift in Sources */,
 				028C14722B302A5A00D93C63 /* PhotoGalleryView.swift in Sources */,
 				029CE1B32B34141D007F2771 /* CustomerInfoView.swift in Sources */,
 				028C14692B3029FB00D93C63 /* AppColor.swift in Sources */,

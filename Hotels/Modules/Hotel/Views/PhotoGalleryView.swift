@@ -10,12 +10,11 @@ struct PhotoGalleryView: View {
                     image
                         .resizable()
                         .scaledToFill()
+                        .frame(width: UIScreen.main.bounds.width - 32, height: 257)
+                        .clipShape(.rect(cornerRadius: 15))
                 } placeholder: {
                     ProgressView()
                 }
-                .frame(height: 257)
-                .clipShape(RoundedRectangle(cornerRadius: 15))
-                .padding(.horizontal, 16)
                 .tag(index)
             }
         }

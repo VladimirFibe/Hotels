@@ -4,17 +4,22 @@ struct HotelView: View {
     var action: Callback?
     @ObservedObject var viewModel: HotelViewModel
     var body: some View {
-        if let hotel = viewModel.hotel {
-            ScrollView(.vertical) {
-                VStack(alignment: .leading, spacing: 16.0) {
-                    HotelHeaderView(hotel: hotel)
-                    about
-                    button
+        VStack {
+            if let hotel = viewModel.hotel {
+                ScrollView(.vertical) {
+                    VStack(alignment: .leading, spacing: 8) {
+                        HotelHeaderView(hotel: hotel)
+                            .hotelSectionModifier()
+                        HotelContentView(hotel: hotel)
+                            .hotelSectionModifier()
+                    }
                 }
+            } else {
+                ProgressView()
             }
-        } else {
-            ProgressView()
+            button
         }
+        .background(AppColor.xF6F6F9.color)
     }
 
     var button: some View {
@@ -30,23 +35,6 @@ struct HotelView: View {
                 .padding(.horizontal, 16)
         }
 
-    }
-
-    var about: some View {
-        VStack(alignment: .leading, spacing: 16.0) {
-            Text("Об отеле")
-                .font(.system(size: 22, weight: .medium))
-            TagsView(tags: [
-                .init(text: "3-я линия"),
-                .init(text: "Платный Wi-Fi в фойе"),
-                .init(text: "30 км до аэропорта"),
-                .init(text: "1 км до пляжа")])
-            Text("Отель VIP-класса с собственными гольф полями. Высокий уровнь сервиса. Рекомендуем для респектабельного отдыха. Отель принимает гостей от 18 лет!")
-                .font(.system(size: 16))
-            HotelFeaturesList()
-
-        }
-        .padding(.horizontal, 16)
     }
 }
 //

@@ -38,7 +38,6 @@ struct TouristView: View {
 struct HotelSectionModifier: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .padding()
             .background(Color.white)
             .clipShape(RoundedRectangle(cornerRadius: 15.0))
     }
