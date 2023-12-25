@@ -10,7 +10,7 @@ struct BookView: View {
         VStack {
             ScrollView(.vertical, showsIndicators: false) {
                 VStack(alignment: .leading, spacing: 16.0) {
-                    HotelStarsView()
+//                    HotelStarsView()
                     Text("Steigenberger Makadi")
                         .font(.system(size: 22, weight: .medium))
                     Text("Madinat Makadi, Safaga Road, Makadi Bay, Египет")

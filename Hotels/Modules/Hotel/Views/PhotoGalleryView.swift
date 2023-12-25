@@ -2,22 +2,27 @@ import SwiftUI
 
 struct PhotoGalleryView: View {
     @State private var selection = 0
+    let imageUrls: [String]
     var body: some View {
         TabView(selection: $selection) {
-            ForEach(0..<7) { index in
-                Image("\(index)")
-                    .resizable()
-                    .scaledToFill()
-                    .frame(height: 257)
-                    .clipShape(RoundedRectangle(cornerRadius: 15))
-                    .padding(.horizontal, 16)
-                    .tag(index)
+            ForEach(imageUrls.indices, id: \.self) { index in
+                AsyncImage(url: URL(string: imageUrls[index])) { image in
+                    image
+                        .resizable()
+                        .scaledToFill()
+                } placeholder: {
+                    ProgressView()
+                }
+                .frame(height: 257)
+                .clipShape(RoundedRectangle(cornerRadius: 15))
+                .padding(.horizontal, 16)
+                .tag(index)
             }
         }
         .tabViewStyle(.page(indexDisplayMode: .never))
         .frame(height: 257)
         .overlay(
-            DotsView(index: $selection, count: 7)
+            DotsView(index: $selection, count: imageUrls.count)
                 .padding(.bottom, 8)
             , alignment: .bottom
         )
@@ -26,6 +31,6 @@ struct PhotoGalleryView: View {
 
 struct PhotoGalleryView_Previews: PreviewProvider {
     static var previews: some View {
-        PhotoGalleryView()
+        PhotoGalleryView(imageUrls: ["https://www.atorus.ru/sites/default/files/upload/image/News/56149/Club_Priv%C3%A9_by_Belek_Club_House.jpg", "https://deluxe.voyage/useruploads/articles/The_Makadi_Spa_Hotel_02.jpg", "https://deluxe.voyage/useruploads/articles/article_1eb0a64d00.jpg"])
     }
 }

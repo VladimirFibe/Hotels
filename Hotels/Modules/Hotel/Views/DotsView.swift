@@ -4,24 +4,24 @@ struct DotsView: View {
     @Binding var index: Int
     let count: Int
     var body: some View {
-        HStack(spacing: 5.0) {
+        HStack(spacing: 0) {
             ForEach(0..<count, id: \.self) { number in
                 Circle()
                     .fill(Color.black)
                     .opacity(dotOpacity(index: index, number: number))
                     .frame(width: 7, height: 7)
+                    .frame(width: 12, height: 44)
+                    .contentShape(.rect)
                     .onTapGesture {
                         index = number
+                        print(index)
                     }
 
             }
         }
         .frame(height: 17)
         .padding(.horizontal, 10)
-        .background(
-            RoundedRectangle(cornerRadius: 5)
-                .fill(Color.white)
-            )
+        .background(Color.white, in: .rect(cornerRadius: 5))
     }
 
     func dotOpacity(index: Int, number: Int) -> Double {

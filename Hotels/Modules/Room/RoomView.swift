@@ -4,7 +4,7 @@ struct RoomView: View {
     var action: Callback?
     var body: some View {
         VStack {
-            PhotoGalleryView()
+//            PhotoGalleryView()
             Text("Стандартный с видном на бассейн или сад")
                 .font(.system(size: 22, weight: .medium))
             TagsView(tags: [

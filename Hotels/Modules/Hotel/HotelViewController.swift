@@ -4,9 +4,12 @@ final class HotelViewController: BaseViewController {
     private let store: HotelStore
     private var viewModel = HotelViewModel()
     private lazy var content = UIHostingController(
-        rootView: HotelView(action: { [weak self] in
-            self?.pushModule()
-        }, viewModel: viewModel)
+        rootView: HotelView(
+            action: { [weak self] in
+                self?.pushModule()
+            }, 
+            viewModel: viewModel
+        )
     )
     init(store: HotelStore, model: Model) {
         self.store = store
@@ -38,6 +41,7 @@ extension HotelViewController {
             .sink {[weak self] event in
                 switch event {
                 case .done(let hotel):
+                    print(hotel)
                     self?.viewModel.hotel = hotel
                 }
             }.store(in: &bag)

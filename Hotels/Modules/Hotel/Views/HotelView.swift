@@ -7,7 +7,7 @@ struct HotelView: View {
         if let hotel = viewModel.hotel {
             ScrollView(.vertical) {
                 VStack(alignment: .leading, spacing: 16.0) {
-                    header
+                    HotelHeaderView(hotel: hotel)
                     about
                     button
                 }
@@ -47,27 +47,6 @@ struct HotelView: View {
 
         }
         .padding(.horizontal, 16)
-    }
-
-    var header: some View {
-        VStack(alignment: .leading, spacing: 16.0) {
-            PhotoGalleryView()
-            VStack(alignment: .leading, spacing: 16.0) {
-                HotelStarsView()
-                Text("Steigenberger Makadi")
-                    .font(.system(size: 22, weight: .medium))
-                Text("Madinat Makadi, Safaga Road, Makadi Bay, Египет")
-                    .font(.system(size: 14, weight: .medium))
-                    .foregroundStyle(AppColor.blue.color)
-                HStack(alignment: .firstTextBaseline) {
-                    Text("от 134 673 ₽")
-                        .font(.system(size: 30, weight: .semibold))
-                    Text("за тур с перелётом")
-                        .foregroundStyle(AppColor.gray.color)
-                }
-            }
-            .padding(.horizontal, 16)
-        }
     }
 }
 //

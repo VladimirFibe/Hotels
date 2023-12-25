@@ -58,6 +58,7 @@
 		029F5B1B2B3940F600C57AD5 /* BookUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029F5B1A2B3940F600C57AD5 /* BookUseCase.swift */; };
 		029F5B1D2B39416F00C57AD5 /* BookStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029F5B1C2B39416F00C57AD5 /* BookStore.swift */; };
 		029F5B1F2B39421A00C57AD5 /* BookViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029F5B1E2B39421A00C57AD5 /* BookViewModel.swift */; };
+		029F5B212B394AA400C57AD5 /* HotelHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029F5B202B394AA400C57AD5 /* HotelHeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -114,6 +115,7 @@
 		029F5B1A2B3940F600C57AD5 /* BookUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookUseCase.swift; sourceTree = "<group>"; };
 		029F5B1C2B39416F00C57AD5 /* BookStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookStore.swift; sourceTree = "<group>"; };
 		029F5B1E2B39421A00C57AD5 /* BookViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookViewModel.swift; sourceTree = "<group>"; };
+		029F5B202B394AA400C57AD5 /* HotelHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotelHeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -227,6 +229,7 @@
 			isa = PBXGroup;
 			children = (
 				028C146B2B302A5A00D93C63 /* HotelView.swift */,
+				029F5B202B394AA400C57AD5 /* HotelHeaderView.swift */,
 				029CE1B02B3412D8007F2771 /* HotelStarsView.swift */,
 				028C146C2B302A5A00D93C63 /* DotsView.swift */,
 				028C146D2B302A5A00D93C63 /* PhotoGalleryView.swift */,
@@ -416,6 +419,7 @@
 				029EE19B2B310F4E004CBAE2 /* BookInfoView.swift in Sources */,
 				02140BEC2B2EA4B9001468F9 /* BaseViewController.swift in Sources */,
 				028C14702B302A5A00D93C63 /* HotelView.swift in Sources */,
+				029F5B212B394AA400C57AD5 /* HotelHeaderView.swift in Sources */,
 				028C14622B30275700D93C63 /* UIViewController+Extension.swift in Sources */,
 				02140BEA2B2EA2B2001468F9 /* PaidViewController.swift in Sources */,
 				028C14732B302A5A00D93C63 /* HotelFeaturesList.swift in Sources */,
