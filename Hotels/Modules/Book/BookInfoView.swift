@@ -1,16 +1,25 @@
 import SwiftUI
 
 struct BookInfoView: View {
+    let book: Book
+    var nights: String {
+        switch book.numberOfNights % 10 {
+        case 1: return book.numberOfNights == 11 ? "11 ночей" : "\(book.numberOfNights) ночь"
+        case 2, 3, 4, 22, 23, 24: return "\(book.numberOfNights) \(book.numberOfNights / 10 == 1 ? "ночей" : "ночи")"
+        default: return "\(book.numberOfNights) ночей"
+        }
+    }
     var body: some View {
         VStack(spacing: 20.0) {
-            BookInfoRow(title: "Вылет из", value: "Санк-Петербург")
-            BookInfoRow(title: "Страна, город", value: "Египет, Хургада")
-            BookInfoRow(title: "Даты", value: "19.09.2023 – 27.09.2023")
-            BookInfoRow(title: "Кол-во ночей", value: "7 ночей")
-            BookInfoRow(title: "Отель", value: "Steigenberger Makadi")
-            BookInfoRow(title: "Номер", value: "Стандартный с видом на бассейн или сад")
-            BookInfoRow(title: "Питание", value: "Все включено")
+            BookInfoRow(title: "Вылет из", value: book.departure)
+            BookInfoRow(title: "Страна, город", value: book.arrivalCountry)
+            BookInfoRow(title: "Даты", value: "\(book.tourDateStart) – \(book.tourDateStop)")
+            BookInfoRow(title: "Кол-во ночей", value: nights)
+            BookInfoRow(title: "Отель", value: book.hotelName)
+            BookInfoRow(title: "Номер", value: book.room)
+            BookInfoRow(title: "Питание", value: book.nutrition)
         }
+        .padding(16)
         .hotelSectionModifier()
     }
 }
@@ -30,7 +39,7 @@ struct BookInfoRow: View {
 }
 
 #Preview {
-    BookInfoView()
+    BookInfoView(book: Book.example)
         .padding(.horizontal)
 
 }

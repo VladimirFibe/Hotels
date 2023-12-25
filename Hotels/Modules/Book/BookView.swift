@@ -2,30 +2,27 @@ import SwiftUI
 
 struct BookView: View {
     var action: Callback?
+    @ObservedObject var viewModel: BookViewModel
     @State var text = "+7"
     @State var tourists: [Tourist] = [.init(id: "Первый турист")]
     @State var firstname = ""
     @State var lastname = ""
     var body: some View {
         VStack {
-            ScrollView(.vertical, showsIndicators: false) {
-                VStack(alignment: .leading, spacing: 16.0) {
-//                    HotelStarsView()
-                    Text("Steigenberger Makadi")
-                        .font(.system(size: 22, weight: .medium))
-                    Text("Madinat Makadi, Safaga Road, Makadi Bay, Египет")
-                        .font(.system(size: 14, weight: .medium))
-                        .foregroundStyle(AppColor.blue.color)
+            if let book = viewModel.book {
+                ScrollView(.vertical, showsIndicators: false) {
+                    BookHeaderView(book: book)
+                    .hotelSectionModifier()
+                    BookInfoView(book: book)
+                    CustomerInfoView()
+                    ForEach($tourists) { $tourist in
+                        TouristView(tourist: $tourist)
+                    }
+                    add
+                    BookTotalView(book: book)
                 }
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .hotelSectionModifier()
-                BookInfoView()
-                CustomerInfoView()
-                ForEach($tourists) { $tourist in
-                    TouristView(tourist: $tourist)
-                }
-                add
-                BookTotalView()
+            } else {
+                ProgressView()
             }
             button
         }
@@ -35,7 +32,7 @@ struct BookView: View {
         Button {
             action?()
         } label: {
-            Text("Оплатить")
+            Text(viewModel.title)
                 .font(.system(size: 16, weight: .medium))
                 .frame(maxWidth: .infinity)
                 .frame(height: 48)
@@ -77,5 +74,5 @@ struct BookView: View {
 }
 
 #Preview {
-    BookView()
+    BookView(viewModel: BookViewModel())
 }

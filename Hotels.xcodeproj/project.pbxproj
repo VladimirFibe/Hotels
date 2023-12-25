@@ -60,6 +60,7 @@
 		029F5B1F2B39421A00C57AD5 /* BookViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029F5B1E2B39421A00C57AD5 /* BookViewModel.swift */; };
 		029F5B212B394AA400C57AD5 /* HotelHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029F5B202B394AA400C57AD5 /* HotelHeaderView.swift */; };
 		029F5B232B39673800C57AD5 /* HotelContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029F5B222B39673800C57AD5 /* HotelContentView.swift */; };
+		029F5B252B397F7800C57AD5 /* BookHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029F5B242B397F7800C57AD5 /* BookHeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -118,6 +119,7 @@
 		029F5B1E2B39421A00C57AD5 /* BookViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookViewModel.swift; sourceTree = "<group>"; };
 		029F5B202B394AA400C57AD5 /* HotelHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotelHeaderView.swift; sourceTree = "<group>"; };
 		029F5B222B39673800C57AD5 /* HotelContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotelContentView.swift; sourceTree = "<group>"; };
+		029F5B242B397F7800C57AD5 /* BookHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookHeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -260,6 +262,7 @@
 			children = (
 				02140BE72B2EA25D001468F9 /* BookViewController.swift */,
 				028C147E2B30600D00D93C63 /* BookView.swift */,
+				029F5B242B397F7800C57AD5 /* BookHeaderView.swift */,
 				029CE1B22B34141D007F2771 /* CustomerInfoView.swift */,
 				029EE19A2B310F4E004CBAE2 /* BookInfoView.swift */,
 				029F089A2B328C8D00B11795 /* BookTotalView.swift */,
@@ -416,6 +419,7 @@
 				02726D532B36E1130086A669 /* HotelService.swift in Sources */,
 				02726D4F2B36DD4F0086A669 /* Hotel.swift in Sources */,
 				029F089B2B328C8D00B11795 /* BookTotalView.swift in Sources */,
+				029F5B252B397F7800C57AD5 /* BookHeaderView.swift in Sources */,
 				028C14602B3022D400D93C63 /* AppCoordinator.swift in Sources */,
 				029F08A42B32E91500B11795 /* TouristView.swift in Sources */,
 				029F089F2B32E78100B11795 /* Tourist.swift in Sources */,

@@ -13,9 +13,13 @@ final class BookViewController: BaseViewController {
     }
     
     lazy var content = UIHostingController(
-        rootView: BookView(action: { [weak self] in
-            self?.pushModule()
-        }))
+        rootView: BookView(
+            action: { [weak self] in
+                self?.pushModule()
+            }, 
+            viewModel: viewModel
+        )
+    )
 }
 
 extension BookViewController {

@@ -1,19 +1,16 @@
 import SwiftUI
 
 struct BookTotalView: View {
-    let tur = 186600
-    let power = 9300
-    let service = 2136
-    var total: Int {
-        tur + power + service
-    }
+    let book: Book
+
     var body: some View {
         VStack(spacing: 16.0) {
-            BookTotalRow(title: "Тур", value: tur)
-            BookTotalRow(title: "Топливный сбор", value: power)
-            BookTotalRow(title: "Сервисный сбор", value: service)
-            BookTotalRow(title: "К оплате", value: total, isTotal: true)
+            BookTotalRow(title: "Тур", value: book.tourPrice)
+            BookTotalRow(title: "Топливный сбор", value: book.fuelCharge)
+            BookTotalRow(title: "Сервисный сбор", value: book.serviceCharge)
+            BookTotalRow(title: "К оплате", value: book.total, isTotal: true)
         }
+        .padding(16)
         .hotelSectionModifier()
     }
 }
@@ -36,6 +33,6 @@ struct BookTotalRow: View {
 }
 
 #Preview {
-    BookTotalView()
+    BookTotalView(book: Book.example)
         .padding()
 }

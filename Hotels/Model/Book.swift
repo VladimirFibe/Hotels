@@ -33,4 +33,10 @@ struct Book: Codable {
         case fuelCharge = "fuel_charge"
         case serviceCharge = "service_charge"
     }
+
+    var total: Int {
+        tourPrice + fuelCharge + serviceCharge
+    }
+
+    static let example = Book(id: 1, hotelName: "Лучший пятизвездочный отель в Хургаде, Египет", hotelAdress: "Madinat Makadi, Safaga Road, Makadi Bay, Египет", horating: 5, ratingName: "Превосходно", departure: "Москва", arrivalCountry: "Египет, Хургада", tourDateStart: "19.09.2023", tourDateStop: "27.09.2023", numberOfNights: 1, room: "Люкс номер с видом на море", nutrition: "Все включено", tourPrice: 289400, fuelCharge: 9300, serviceCharge: 2150)
 }
