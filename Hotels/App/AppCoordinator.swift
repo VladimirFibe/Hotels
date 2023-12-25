@@ -39,9 +39,12 @@ extension AppCoordinator {
         let store = HotelStore(useCase: useCase)
         return HotelViewController(
             store: store,
-            model: .init(pushModuleHandler: { [weak self] in
-            self?.runRoom()
-        }))
+            model: .init(
+                pushModuleHandler: { [weak self] in
+                    self?.runRoom()
+                }
+            )
+        )
     }
 
     private func makeRoom() -> BaseViewControllerProtocol {
@@ -61,14 +64,19 @@ extension AppCoordinator {
     }
 
     private func makeReserve() -> BaseViewControllerProtocol {
-        BookViewController(model: .init(
-            pushModuleHandler: { [weak self] in
-                self?.runPaid()
-            },
-            closeUnitOrModuleHandler: { [weak self] in
-                self?.closeModule()
-            }
-        ))
+        let useCase = BookUseCase(apiService: RESTClient.shared)
+        let store = BookStore(useCase: useCase)
+        return BookViewController(
+            store: store,
+            model: .init(
+                pushModuleHandler: { [weak self] in
+                    self?.runPaid()
+                },
+                closeUnitOrModuleHandler: { [weak self] in
+                    self?.closeModule()
+                }
+            )
+        )
     }
 
     private func makePaid() -> BaseViewControllerProtocol {
