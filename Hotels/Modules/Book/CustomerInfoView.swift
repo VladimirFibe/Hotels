@@ -14,6 +14,7 @@ struct CustomerInfoView: View {
                 .foregroundStyle(.secondary)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
+        .padding(16)
         .hotelSectionModifier()
     }
 }

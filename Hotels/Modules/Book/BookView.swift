@@ -55,6 +55,7 @@ struct BookView: View {
                     .clipShape(RoundedRectangle(cornerRadius: 6))
             }
         }
+        .padding(16)
         .hotelSectionModifier()
     }
 

@@ -31,6 +31,7 @@ struct TouristView: View {
                 }
             }
         }
+        .padding(16)
         .hotelSectionModifier()
     }
 }
