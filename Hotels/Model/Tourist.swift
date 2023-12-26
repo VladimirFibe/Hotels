@@ -8,4 +8,8 @@ struct Tourist: Identifiable {
     var citizen = ""
     var passport = ""
     var validDate = ""
+
+    var validFields: Bool {
+        !firstname.isEmpty && !lastname.isEmpty && !birthday.isEmpty && !citizen.isEmpty && !passport.isEmpty && !validDate.isEmpty
+    }
 }

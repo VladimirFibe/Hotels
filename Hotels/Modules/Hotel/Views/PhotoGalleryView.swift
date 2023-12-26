@@ -7,7 +7,12 @@ struct PhotoGalleryView: View {
         TabView(selection: $selection) {
             ForEach(imageUrls.indices, id: \.self) { index in
                 KFImage(URL(string: imageUrls[index])!)
-                    .placeholder({ _ in Image("photoPlaceholder") })
+                    .placeholder({ _ in
+                        Image("photoPlaceholder")
+                            .overlay {
+                                ProgressView()
+                            }
+                    })
                     .resizable()
                     .scaledToFill()
                     .frame(width: UIScreen.main.bounds.width - 32, height: 257)

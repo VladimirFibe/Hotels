@@ -3,10 +3,22 @@ import SwiftUI
 struct BookView: View {
     var action: Callback?
     @ObservedObject var viewModel: BookViewModel
-    @State var text = "+7"
     @State var tourists: [Tourist] = [.init(id: "Первый турист")]
-    @State var firstname = ""
-    @State var lastname = ""
+    var info: some View {
+        VStack(alignment: .leading) {
+            Text("Информация о покупателе")
+                .font(.system(size: 22, weight: .medium))
+            PhoneTextField(placeholder: "Номер телефона", text: $viewModel.phone)
+            HotelTextField(placeholder: "Почта", text: $viewModel.mail)
+                .keyboardType(.emailAddress)
+            Text("Эти данные никому не передаются. После оплаты мы вышли чек на указанный вами номер и почту")
+                .font(.system(size: 14))
+                .foregroundStyle(.secondary)
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .padding(16)
+        .hotelSectionModifier()
+    }
     var body: some View {
         VStack {
             if let book = viewModel.book {
@@ -14,7 +26,7 @@ struct BookView: View {
                     BookHeaderView(book: book)
                     .hotelSectionModifier()
                     BookInfoView(book: book)
-                    CustomerInfoView()
+                    info
                     ForEach($tourists) { $tourist in
                         TouristView(tourist: $tourist)
                     }
@@ -30,7 +42,10 @@ struct BookView: View {
     }
     var button: some View {
         Button {
-            action?()
+            print(viewModel.isValidEmail)
+            if viewModel.isValidEmail {
+                action?()
+            }
         } label: {
             Text(viewModel.title)
                 .font(.system(size: 16, weight: .medium))
@@ -62,6 +77,7 @@ struct BookView: View {
                     .background(AppColor.blue.color)
                     .clipShape(RoundedRectangle(cornerRadius: 6))
             }
+            .disabled(!(tourists.last?.validFields ?? false))
         }
         .padding(16)
         .hotelSectionModifier()
