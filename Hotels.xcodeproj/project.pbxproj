@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		020B663A2B3B114400D7AC0A /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 020B66392B3B114400D7AC0A /* Kingfisher */; };
 		02140BE42B2EA1F1001468F9 /* HotelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02140BE32B2EA1F1001468F9 /* HotelViewController.swift */; };
 		02140BE62B2EA1FE001468F9 /* RoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02140BE52B2EA1FE001468F9 /* RoomViewController.swift */; };
 		02140BE82B2EA25D001468F9 /* BookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02140BE72B2EA25D001468F9 /* BookViewController.swift */; };
@@ -127,6 +128,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				020B663A2B3B114400D7AC0A /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -331,6 +333,9 @@
 			dependencies = (
 			);
 			name = Hotels;
+			packageProductDependencies = (
+				020B66392B3B114400D7AC0A /* Kingfisher */,
+			);
 			productName = Hotels;
 			productReference = 025E4BD82B2D3B40005CA675 /* Hotels.app */;
 			productType = "com.apple.product-type.application";
@@ -359,6 +364,9 @@
 				Base,
 			);
 			mainGroup = 025E4BCF2B2D3B40005CA675;
+			packageReferences = (
+				020B66382B3B114400D7AC0A /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			productRefGroup = 025E4BD92B2D3B40005CA675 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -649,6 +657,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		020B66382B3B114400D7AC0A /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.10.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		020B66392B3B114400D7AC0A /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 020B66382B3B114400D7AC0A /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 025E4BD02B2D3B40005CA675 /* Project object */;
 }

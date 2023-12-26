@@ -9,8 +9,8 @@ final class AppCoordinator: BaseCoordinator {
         let controller = makeHotel()
         router.setRootModule(controller)
     }
-    private func runRoom() {
-        let controller = makeRoom()
+    private func runRoom(title: String) {
+        let controller = makeRoom(title: title)
         router.push(controller)
     }
 
@@ -40,14 +40,14 @@ extension AppCoordinator {
         return HotelViewController(
             store: store,
             model: .init(
-                pushModuleHandler: { [weak self] in
-                    self?.runRoom()
+                pushModuleHandler: { [weak self] title in
+                    self?.runRoom(title: title)
                 }
             )
         )
     }
 
-    private func makeRoom() -> BaseViewControllerProtocol {
+    private func makeRoom(title: String) -> BaseViewControllerProtocol {
         let useCase = RoomUseCase(apiService: RESTClient.shared)
         let store = RoomStore(useCase: useCase)
         return RoomViewController(
@@ -59,7 +59,8 @@ extension AppCoordinator {
                 closeUnitOrModuleHandler: { [weak self] in
                     self?.closeModule()
                 }
-            )
+            ), 
+            title: title
         )
     }
 

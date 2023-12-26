@@ -11,9 +11,23 @@ final class HotelViewController: BaseViewController {
             viewModel: viewModel
         )
     )
+
+    struct Model {
+        var pushUnitHandler: Callback? = nil
+        var pushModuleHandler: ((String) -> Void)? = nil
+        var closeUnitOrModuleHandler: Callback? = nil
+        var popToRootHandler: Callback? = nil
+        var modalModuleHandler: Callback? = nil
+        var modalUnitHandler: Callback? = nil
+        var closeModalHandler: Callback? = nil
+    }
+
+    let model: Model
+
     init(store: HotelStore, model: Model) {
         self.store = store
-        super.init(model: model)
+        self.model = model
+        super.init(nibName: nil, bundle: nil)
     }
     
     required init?(coder: NSCoder) {
@@ -31,7 +45,8 @@ extension HotelViewController {
     }
 
     func pushModule() {
-        model.pushModuleHandler?()
+        let title = viewModel.hotel?.name ?? "Hotel"
+        model.pushModuleHandler?(title)
     }
 
     private func setupObservers() {
@@ -41,7 +56,6 @@ extension HotelViewController {
             .sink {[weak self] event in
                 switch event {
                 case .done(let hotel):
-                    print(hotel)
                     self?.viewModel.hotel = hotel
                 }
             }.store(in: &bag)

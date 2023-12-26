@@ -4,9 +4,24 @@ final class RoomViewController: BaseTableViewController {
     let cellReuseID = "cellReuseID"
     var rooms: [Room] = []
     private let store: RoomStore
-    init(store: RoomStore, model: Model) {
+    
+    struct Model {
+        var pushUnitHandler: Callback? = nil
+        var pushModuleHandler: Callback? = nil
+        var closeUnitOrModuleHandler: Callback? = nil
+        var popToRootHandler: Callback? = nil
+        var modalModuleHandler: Callback? = nil
+        var modalUnitHandler: Callback? = nil
+        var closeModalHandler: Callback? = nil
+    }
+
+    let model: Model
+
+    init(store: RoomStore, model: Model, title: String) {
         self.store = store
-        super.init(model: model)
+        self.model = model
+        super.init(nibName: nil, bundle: nil)
+        navigationItem.title = title
     }
     
     required init?(coder: NSCoder) {
@@ -46,7 +61,6 @@ extension RoomViewController {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseID)
         tableView.separatorStyle = .none
         addNavBarButton(at: .left, image: UIImage(systemName: "chevron.left"))
-        navigationItem.title = "Steigenberger Makadi"
         setupObservers()
         store.sendAction(.fetch)
     }

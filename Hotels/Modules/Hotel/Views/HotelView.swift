@@ -32,17 +32,18 @@ struct HotelView: View {
                 .frame(height: 48)
                 .foregroundStyle(.white)
                 .background(RoundedRectangle(cornerRadius: 15).fill(AppColor.blue.color))
-                .padding(.horizontal, 16)
+                .padding(16)
+                .background(Color.white)
+                .overlay(alignment: .top) {
+                    Rectangle()
+                        .foregroundStyle(AppColor.xE8E9EC.color)
+                        .frame(height: 1)
+
+                }
         }
 
     }
 }
-//
-//struct HotelView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        HotelView()
-//    }
-//}
 
 struct Tag: Identifiable, Hashable {
     var id = UUID().uuidString

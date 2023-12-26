@@ -1,21 +1,18 @@
 import SwiftUI
-
+import Kingfisher
 struct PhotoGalleryView: View {
     @State private var selection = 0
     let imageUrls: [String]
     var body: some View {
         TabView(selection: $selection) {
             ForEach(imageUrls.indices, id: \.self) { index in
-                AsyncImage(url: URL(string: imageUrls[index])) { image in
-                    image
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: UIScreen.main.bounds.width - 32, height: 257)
-                        .clipShape(.rect(cornerRadius: 15))
-                } placeholder: {
-                    ProgressView()
-                }
-                .tag(index)
+                KFImage(URL(string: imageUrls[index])!)
+                    .placeholder({ _ in Image("photoPlaceholder") })
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: UIScreen.main.bounds.width - 32, height: 257)
+                    .clipShape(.rect(cornerRadius: 15))
+                    .tag(index)
             }
         }
         .tabViewStyle(.page(indexDisplayMode: .never))

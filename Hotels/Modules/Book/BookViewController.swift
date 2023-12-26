@@ -3,9 +3,23 @@ import SwiftUI
 final class BookViewController: BaseViewController {
     private let store: BookStore
     private let viewModel = BookViewModel()
+
+    struct Model {
+        var pushUnitHandler: Callback? = nil
+        var pushModuleHandler: Callback? = nil
+        var closeUnitOrModuleHandler: Callback? = nil
+        var popToRootHandler: Callback? = nil
+        var modalModuleHandler: Callback? = nil
+        var modalUnitHandler: Callback? = nil
+        var closeModalHandler: Callback? = nil
+    }
+
+    let model: Model
+
     init(store: BookStore, model: Model) {
         self.store = store
-        super.init(model: model)
+        self.model = model
+        super.init(nibName: nil, bundle: nil)
     }
 
     required init?(coder: NSCoder) {

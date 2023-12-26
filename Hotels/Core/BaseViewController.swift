@@ -7,17 +7,6 @@ public protocol BaseViewControllerProtocol: UIViewController {
 
 class BaseViewController: UIViewController, BaseViewControllerProtocol {
     var bag = Bag()
-    struct Model {
-        var pushUnitHandler: Callback? = nil
-        var pushModuleHandler: Callback? = nil
-        var closeUnitOrModuleHandler: Callback? = nil
-        var popToRootHandler: Callback? = nil
-        var modalModuleHandler: Callback? = nil
-        var modalUnitHandler: Callback? = nil
-        var closeModalHandler: Callback? = nil
-    }
-
-    let model: Model
 
     public var onRemoveFromNavigationStack: (() -> Void)?
     public var onDidDismiss: (() -> Void)?
@@ -36,17 +25,8 @@ class BaseViewController: UIViewController, BaseViewControllerProtocol {
         }
     }
 
-    init(model: Model) {
-        self.model = model
-        super.init(nibName: nil, bundle: nil)
-    }
-
     deinit {
         print("\(String(describing: self))ViewController dealloc")
-    }
-
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
 
     override func viewDidLoad() {

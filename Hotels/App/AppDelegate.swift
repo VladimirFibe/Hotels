@@ -33,6 +33,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let buttonAppearance = UIBarButtonItemAppearance(style: .plain)
         appearance.configureWithDefaultBackground()
         appearance.backgroundColor = .systemBackground
+        appearance.shadowColor = .white
+        appearance.shadowImage = UIImage()
         appearance.titleTextAttributes = [.foregroundColor: UIColor.label]
 
         buttonAppearance.normal.titleTextAttributes = [.foregroundColor: UIColor.label]

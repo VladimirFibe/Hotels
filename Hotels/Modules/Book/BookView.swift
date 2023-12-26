@@ -38,6 +38,14 @@ struct BookView: View {
                 .frame(height: 48)
                 .foregroundStyle(.white)
                 .background(RoundedRectangle(cornerRadius: 15).fill(AppColor.blue.color))
+                .padding(16)
+                .background(Color.white)
+                .overlay(alignment: .top) {
+                    Rectangle()
+                        .foregroundStyle(AppColor.xE8E9EC.color)
+                        .frame(height: 1)
+
+                }
         }
 
     }

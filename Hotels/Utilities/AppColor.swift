@@ -24,4 +24,5 @@ enum AppColor: String, AppColorProtocol {
     case lightGray = "xFBFBFC"
     case orangeBackground = "xFFC70020"
     case xF6F6F9
+    case xE8E9EC
 }

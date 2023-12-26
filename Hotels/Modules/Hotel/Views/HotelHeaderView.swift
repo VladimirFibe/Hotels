@@ -9,9 +9,13 @@ struct HotelHeaderView: View {
                 HotelStarsView(rating: hotel.rating, name: hotel.ratingName)
                 Text(hotel.name)
                     .font(.system(size: 22, weight: .medium))
-                Text(hotel.adress)
-                    .font(.system(size: 14, weight: .medium))
-                    .foregroundStyle(AppColor.blue.color)
+                Button(action: {
+                    print(hotel.adress)
+                }) {
+                    Text(hotel.adress)
+                        .font(.system(size: 14, weight: .medium))
+                }
+                    .tint(AppColor.blue.color)
                 HStack(alignment: .firstTextBaseline) {
                     Text("от \(hotel.minimalPrice) ₽")
                         .font(.system(size: 30, weight: .semibold))
